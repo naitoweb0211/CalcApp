@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 intent.putExtra("ANSWER", answer)
                 startActivity(intent)
             } catch (e: Exception) {
-                showAlertDialog()
+                Snackbar.make(findViewById(R.id.button1), "両方の値を入力して下さい。", Snackbar.LENGTH_SHORT).show()
             }
 
         }else if(v?.id == R.id.button2){
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 intent.putExtra("ANSWER", answer)
                 startActivity(intent)
             } catch (e: Exception) {
-                showAlertDialog()
+                Snackbar.make(findViewById(R.id.button2), "両方の値を入力して下さい。", Snackbar.LENGTH_SHORT).show()
             }
         }else if(v?.id == R.id.button3){
             //数値に変換
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 intent.putExtra("ANSWER", answer)
                 startActivity(intent)
             } catch (e: Exception) {
-                showAlertDialog()
+                Snackbar.make(findViewById(R.id.button3), "両方の値を入力して下さい。", Snackbar.LENGTH_SHORT).show()
             }
 
         }else{
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 intent.putExtra("ANSWER", answer)
                 startActivity(intent)
             } catch (e: Exception) {
-                showAlertDialog()
+                Snackbar.make(findViewById(R.id.button4), "両方の値を入力して下さい。", Snackbar.LENGTH_SHORT).show()
             }
 
         }
@@ -89,5 +89,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         alertDialogBuilder.setMessage("両方、数値を入力して下さい。")
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()
+    }
+
+    fun showSnackbar(view: View) {
+        Snackbar.make(view, "両方、数値を入力して下さい。", Snackbar.LENGTH_SHORT)
+            .setDuration(10000)
+            .show()
     }
 }
